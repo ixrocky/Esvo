@@ -42,7 +42,7 @@ def get_overlay_content_box(overlay_img: Image.Image) -> tuple:
     binary = alpha.point(lambda p: 255 if p > threshold else 0)
     return binary.getbbox()
 
-async def get_thumb(videoid: str):
+async def gen_thumb(videoid: str):
     url = f"https://www.youtube.com/watch?v={videoid}"
     try:
         results = VideosSearch(url, limit=1)
@@ -119,7 +119,7 @@ async def get_thumb(videoid: str):
 
         # Watermark
         watermark_font = ImageFont.truetype("SaregamaMusic/assets/font2.ttf", 24)
-        watermark_text = "@WTF_WhyMeeh"
+        watermark_text = "@WTF_Owner"
         text_size = draw.textsize(watermark_text, font=watermark_font)
         x = background.width - text_size[0] - 25
         y = background.height - text_size[1] - 25
@@ -138,6 +138,6 @@ async def get_thumb(videoid: str):
         return tpath
 
     except Exception as e:
-        print(f"[get_thumb Error] {e}")
+        print(f"[gen_thumb Error] {e}")
         traceback.print_exc()
         return None

@@ -46,13 +46,13 @@ def stream_markup_timer(_, chat_id, played, dur):
         bar = "————————◉—"
     else:
         bar = "—————————◉"
-    buttons = [
-        [
+buttons = [
+       [
             InlineKeyboardButton(
                 text=f"{played} {bar} {dur}",
                 callback_data="GetTimer",
             )
-        ],
+        ], 
         [
             InlineKeyboardButton(text="▷", callback_data=f"ADMIN Resume|{chat_id}"),
             InlineKeyboardButton(text="II", callback_data=f"ADMIN Pause|{chat_id}"),
@@ -60,14 +60,6 @@ def stream_markup_timer(_, chat_id, played, dur):
             InlineKeyboardButton(text="‣‣I", callback_data=f"ADMIN Skip|{chat_id}"),
             InlineKeyboardButton(text="▢", callback_data=f"ADMIN Stop|{chat_id}"),
         ],
-         [
-             InlineKeyboardButton(text="< - 𝟤𝟢ˢ", callback_data="seek_backward_20"),
-             InlineKeyboardButton(text="• sᴛᴀʀᴛ •", url=f"http://t.me/ShriramSongBot"),
-             InlineKeyboardButton(text="𝟤𝟢ˢ + >", callback_data="seek_forward_20")
-         ],
-        [
-            InlineKeyboardButton(text="✙ ʌᴅᴅ ϻє ɪη ʏσυʀ ɢʀσυᴘ ✙", url=f"https://t.me/{app.username}?startgroup=true"),
-        ]
     ]
     return buttons
 
@@ -80,15 +72,7 @@ def stream_markup(_, chat_id):
             InlineKeyboardButton(text="↻", callback_data=f"ADMIN Replay|{chat_id}"),
             InlineKeyboardButton(text="‣‣I", callback_data=f"ADMIN Skip|{chat_id}"),
             InlineKeyboardButton(text="▢", callback_data=f"ADMIN Stop|{chat_id}"),
-         ],
-        [
-             InlineKeyboardButton(text="< - 𝟤𝟢ˢ", callback_data="seek_backward_20"),
-             InlineKeyboardButton(text="• ᴘʀᴏᴍᴏ •", url=f"http://t.me/ShriramMusicXBot"),
-             InlineKeyboardButton(text="𝟤𝟢ˢ + >", callback_data="seek_forward_20")
-         ],
-        [
-            InlineKeyboardButton(text="✙ ʌᴅᴅ ϻє ɪη ʏσυʀ ɢʀσυᴘ ✙", url=f"https://t.me/{app.username}?startgroup=true"),
-        ]
+        ],
     ]
     return buttons
 

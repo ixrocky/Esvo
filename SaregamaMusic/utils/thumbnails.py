@@ -135,8 +135,8 @@ async def get_thumb(videoid: str) -> str:
 
     # Title & Meta
     try:
-        title_font = ImageFont.truetype("SaregamaMusic/assets/thumb/font2.ttf", 30)
-        meta_font = ImageFont.truetype("SaregamaMusic/assets/thumb/font.ttf", 22)
+        title_font = ImageFont.truetype("SaregamaMusic/assets/font2.ttf", 30)
+        meta_font = ImageFont.truetype("SaregamaMusic/assets/font.ttf", 22)
         draw = ImageDraw.Draw(bg)
 
         title_text = trim_to_width(title, title_font, MAX_TITLE_WIDTH)
@@ -146,7 +146,7 @@ async def get_thumb(videoid: str) -> str:
                   fill="#FF0000", font=meta_font)
 
         if is_live:
-            live_font = ImageFont.truetype("SaregamaMusic/assets/thumb/font2.ttf", 22)
+            live_font = ImageFont.truetype("SaregamaMusic/assets/font2.ttf", 22)
             draw.ellipse((META_X + 200, META_Y - 5, META_X + 225, META_Y + 20), fill=(255, 0, 0, 255))
             draw.text((META_X + 230, META_Y), "LIVE", fill="red", font=live_font)
     except Exception as e:
@@ -166,7 +166,7 @@ async def get_thumb(videoid: str) -> str:
 
     # Icons layer
     try:
-        icons_path = "SaregamaMusic/assets/thumb/play_icons.png"
+        icons_path = "SaregamaMusic/assets/play_icons.png"
         if os.path.isfile(icons_path):
             icons = Image.open(icons_path).resize((ICONS_W, ICONS_H)).convert("RGBA")
         else:

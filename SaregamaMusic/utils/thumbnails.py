@@ -131,24 +131,3 @@ async def get_thumb(videoid: str) -> str:
 
     bg.save(cache_path)
     return cache_path
-
-import aiohttp
-import os
-
-async def gen_thumb(videoid, title="Thumbnail"):
-    try:
-        url = f"https://img.youtube.com/vi/{videoid}/hqdefault.jpg"
-        filename = f"thumb_{videoid}.jpg"
-
-        async with aiohttp.ClientSession() as session:
-            async with session.get(url) as resp:
-                if resp.status == 200:
-                    with open(filename, "wb") as f:
-                        f.write(await resp.read())
-                    return filename
-                else:
-                    return None
-    except Exception as e:
-        print(f"Thumbnail Error: {e}")
-        return None
-

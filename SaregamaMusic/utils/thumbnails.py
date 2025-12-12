@@ -131,3 +131,8 @@ async def get_thumb(videoid: str) -> str:
 
     bg.save(cache_path)
     return cache_path
+
+except Exception as e:
+        print(f"[get_thumb Error] {e}")
+        traceback.print_exc()
+        return None
